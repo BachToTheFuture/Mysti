@@ -243,6 +243,25 @@ h3 {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #60AFFF;
 }
 
+.btn-secondary {
+  padding:10px 15px 10px 15px;
+  font-weight:600;
+  font-size:1rem;
+  background:#7affd7 ;
+  border:none;
+  color: black;
+  
+  transition: all 0.2s ease;
+  text-align: left;
+}
+.btn-secondary:hover,
+.btn-secondary:active:focus {
+  background:#4CE0B3 !important;
+  color: black;
+  outline: 0 none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #4CE0B3;
+}
+
 .swap {
   font-weight:800;
   transition: all 0.2s ease;
@@ -288,8 +307,8 @@ input[type="color"]:focus,
     margin: 0;
     position: absolute;
     top: 50%;
-    -ms-transform: translateY(-65%);
-    transform: translateY(-65%);
+    -ms-transform: translateY(-70%);
+    transform: translateY(-70%);
   }
 
 .active {
