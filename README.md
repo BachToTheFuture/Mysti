@@ -4,7 +4,7 @@
 
 ### Installation
 
-Visit the project page [here]() to download compiled application, and place it in your Applications folder. Mysti is ready to be used, and there's no need to compile anything!
+Visit the project page [here](https://bachtothefuture.github.io/Mysti/) to download the compiled application, and place it in your Applications folder. Mysti is ready to be used, and there's no need to compile anything!
 
 ### Usage
 
