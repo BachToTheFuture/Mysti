@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Page style -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div class="content-container">
+		<div class="content-helper">
+			<div id="content-body-scrollable" class="card">
+				<div class="card-body">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<a class="navbar-brand" href="index.html">
+                            <img src="../public/assets/mystiLogoSmall.png" height="40" style="margin-right: -5px" alt="">
+							Mysti
+						  </a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						  <span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNav">
+						  <ul class="navbar-nav">
+                            <li class="nav-item">
+								<a href="manual.html" class="nav-link active">Manual</a>
+                            </li>
+						  </ul>
+						</div>
+					  </nav>
+                      <div id="main" class="manual">
+                         <p> Welcome to <b>Mysti!</b> If you have not done so already, click <a href="index.html">here</a> to download Mysti to your computer. </p>
+                         <hr>
+                         <h4> Choosing Directories</h4>
+                         <p>
+                             Before creating filters, you must first indicate in which directory or directories Mysti should organize your files.
+                         </p>
+                         <p>
+                             When you first open Mysti, you should see the following window.
+                         </p>
+                         <img src="1.png" width="400">
+                         <p>
+                            Click <b>Add directory</b>. You should now see the following.
+                        </p>
+                        <img src="2.png" width="400">
+                        <p>
+                            Go ahead and click <b> Choose directory </b>. You should be able to choose a folder, and once you have done so press <b>Open</b>.
+                        </p>
+                        <p>
+                            The textbox next to the button should be filled like this if you chose your Desktop as the directory:
+                        </p>
+                        <img src="3.png" width="400">
+                        <p>
+                            Click on the textbox so that the cursor is on it, and press Enter. You should now see something like this:
+                        </p>
+                        <img src="4.png" width="400">
+                        <h5> Editing Directories </h5>
+                        <p> If you want to change directories and keep the filters that you have for this directory, click on the name of the directory. This will open up the editing mode and you should be able to click <b>Choose directory</b> button again to change directories.</p>
+                        <p> If you unintentionally clicked on the directory name and you want to go back, just click the textbox and press Enter.</p>
+                        
+                        <h5> Deleting Directories </h5>
+                        <p> If you no longer want Mysti to organize a certain directory or folder, just click the red <b>Delete</b> button to remove all the filters in the directory.
+                      
+                        <hr>
+                        <h4> Creating Filters</h4>
+                            <p>Once you create a directory, you can then start to create filters.</p>
+                            <p>Click <b>Add filter</b> and you should see the following:</p>
+                            <img src="5.png" width="400">
+                            <p>Under <b>Regex for filename</b>, in the "Filter..." textbox, type in a <a href="regex101.com">regex</a> pattern that will match a filename.</p>
+                            <p> Then in the <b>Target Directory</b> field type in the name of the folder that you wish to move any matching files to. If you put in a directory, notice that it is going to be the <i>relative</i> directory, relative to the directory of the filter, not the absolute directory. </p>
+                            <p><b>Examples:</b> if you want to match all PDF files you would type ".pdf" in the filters field. If you want to move all PDF files to a folder called PDF, type "PDF" in the target directories field.</p>
+                            <p>Once you click <b>Save filter</b> you should get a screen like this:</p>
+                            <img src="6.png" width="400">
+                            
+                            <p> You are finally done! Everytime a new file is created or a file is moved in the directories specified, Mysti will notify you that the file has been moved if it matches the filter.</p>
+                            
+                            <h5>Editing Filters</h5>
+                            <p>Click on the filter that you want to edit and it will bring up the edit menu.</p>
+
+                            <h5>Deleting Filters</h5>
+                            <p>Click on the red <b>x</b> to the left to delete the filter.</p>
+
+                            <h5>Advanced Filters</h5>
+                            <p>Let's say you want to organize your screenshots.</p>
+                            <p>On MacOS, the format of a screenshot picture is <pre>Screen Shot [year]-[month]-[day] at [hour].[min].[sec] [PM/AM]</pre></p>
+                            <p>Let's say you want all screenshots taken at 12:00 PM. This is how you would type out the filters field. </p>
+                            <pre>Screen Shot (\d+)-(\d+)-(\d+) at 12.(\d+).(\d+) PM</pre>
+                            <p>The <code>(\d+)</code> is a placeholder for any number. This would mean that this regex would match any dates as long as the file was created exactly at 12:00 PM.</p>
+                            <p>Instead of writing <code>(\d+)</code> everytime you need a placeholder, you can also press the <b>Number</b> button next to <b>Sample templates</b> to insert the pattern into the textbox.</p>
+                            <p>Let's say you want to place these files into different folders based on the year that they were taken in. Then for target directory you would put something like <pre>$1-12PMScreenshots</pre></p>
+                            <p>The <code>$1</code> is also a placeholder for the first match of the regex, or the first item that was surrounded by parenthesis <code>(\d+)</code>. For screenshots taken in the year 2020, the screenshot would go in a folder called <code>2020-12PMScreenshots</code>. For 2019, it would go in <code>2019-12PMScreenshots</code>, and so on.</p>
+                        
+                            <h4>Logs</h4>
+                            <p> If you don't remember where a file has been moved, click on the <b>Logs</b> navigation link at the top, and you will be taken to the logs page. This page is just to keep track of which files have been moved where.</p>
+                            <img src="7.png" width="400">
+                        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
