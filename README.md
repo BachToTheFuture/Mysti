@@ -1,6 +1,10 @@
-# Mysti
 
-![screenshot](screenshot.png)A file organizer for MacOS, created by Bach Nguyen for CS50 Final Project. Thank you so much to @dbilgili for his [Electron-React boilerplate](https://github.com/dbilgili/minimal-electron-react-boilerplate), which I used as a starting point for my project!
+
+<img src="banner.png" height="100">
+
+
+
+A file organizer for MacOS, created by Bach Nguyen for CS50 Final Project. Thank you so much to @dbilgili for his [Electron-React boilerplate](https://github.com/dbilgili/minimal-electron-react-boilerplate), which I used as a starting point for my project!
 
 ### Installation
 
