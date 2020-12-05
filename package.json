@@ -1,6 +1,6 @@
 {
-  "name": "mysti",
-  "productName": "mysti",
+  "name": "Mysti",
+  "productName": "Mysti",
   "version": "1.0.0",
   "description": "A file organizer using filters",
   "main": "src/server/main.js",

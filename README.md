@@ -28,7 +28,9 @@ Then, open a new Terminal window, navigate to the same directory (the one with t
 
 #### 3. Building
 
-If you want to compile the code to a native MacOS app and combine the client and the server parts together, run `npm build`. This command will create a new folder called `bin`. Navigate into this folder and you'll an application file called "mysti". This is the standalone application! Double click it to run Mysti.
+If you want to compile the code to a native MacOS app and combine the client and the server parts together, run `npm run build`, then `npm run dist`. This will take a while so go get yourself some snacks or nice drinks!
+
+Once the command is done, you'll see a new folder called `dist`. Navigate into this folder and and into a subfolder called `mac` and you'll an application file called "Mysti". This is the standalone application! Double click it to run Mysti.
 
 
 
