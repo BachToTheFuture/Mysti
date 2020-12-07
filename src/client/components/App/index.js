@@ -61,13 +61,11 @@ class App extends React.Component {
     this.setState({
       dirs: dirs
     });
-    console.log(this.state.dirs);
     this.sendFiltersUpdate(this.state.dirs);
   }
 
   deleteDir = (idx) => {
     let dirs = [...this.state.dirs];
-    console.log("INDEX", idx, dirs);
     dirs.splice(idx, 1)
     this.setState({
       dirs: dirs
@@ -83,7 +81,6 @@ class App extends React.Component {
   }
 
   addDir = () => {
-    console.log(this.state.dirs)
     this.setState({
       dirs: this.state.dirs.concat([{new: true, dir: "", filters: []}])
     });
