@@ -19,7 +19,7 @@
 						<a class="navbar-brand" href="index.html">
                             <img src="mystiLogoSmall.png" alt="mysti logo" height="40" style="margin-right: -5px" alt="">
 							Mysti
-						  </a>
+						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						  <span class="navbar-toggler-icon"></span>
 						</button>
@@ -32,15 +32,23 @@
 						</div>
 					  </nav>
                       <div id="main" class="manual">
-                         <p> Welcome to <b>Mysti!</b> If you have not done so already, click <a href="index.html">here</a> to download Mysti to your computer. </p>
-                         <hr>
+                        <p> Welcome to <b>Mysti!</b> If you have not done so already, click <a href="index.html">here</a> to download Mysti to your computer. </p>
+                        <h4>Table of contents</h4>
+                        <ol>
+                            <li><a href="#start">Getting started</a></li>
+                            <li><a href="#directories">Choosing directories</a></li>
+                            <li><a href="#filters">Creating filters</a></li>
+                            <li><a href="#logs">Logs</a></li>
+                        </ol>
 
-                         <h4> Getting started </h4>
+                        <hr>
+                        <h4 id="start"> Getting started </h4>
                             <p> When you open Mysti for the first time, you should see this window. </p>
                             <img src="intro.png" alt="welcome screen" width="400">
                             <p>Go ahead and click <b>Go create your first filter!</b> to begin!</p>
-
-                         <h4> Choosing Directories</h4>
+                         
+                        <hr>
+                        <h4 id="directories"> Choosing Directories</h4>
                             <p> Before creating filters, you must first indicate in which directory or directories Mysti should organize your files. </p>
                             <p> You should see the following. If you don't, go ahead and click the blue <b>Add directory</b>.</p>
                             <img src="newdir.png" alt="new directory menu" width="400">
@@ -58,7 +66,7 @@
                                 <p> If you no longer want Mysti to organize a certain directory or folder, just click the red <b>Delete</b> button to remove all the filters in the directory.
                       
                         <hr>
-                        <h4> Creating Filters</h4>
+                        <h4 id="filters"> Creating Filters</h4>
                             <p>Once you create a directory, you can then start to create filters.</p>
                             <p>Click <b>Add filter</b> and you should see the following:</p>
                             <img src="newfilter.png" alt="create filter menu" width="400">
@@ -90,7 +98,8 @@
                                 <p>Let's say you want to place these files into different folders based on the year that they were taken in. Then for target directory you would put something like <pre>$1-12PMScreenshots</pre></p>
                                 <p>The <code>$1</code> is also a placeholder for the first match of the regex, or the first item that was surrounded by parenthesis <code>(\d+)</code>. For screenshots taken in the year 2020, the screenshot would go in a folder called <code>2020-12PMScreenshots</code>. For 2019, it would go in <code>2019-12PMScreenshots</code>, and so on.</p>
                         
-                        <h4>Logs</h4>
+                        <hr>
+                        <h4 id="logs">Logs</h4>
                             <p> If you don't remember where a file has been moved, click on the <b>Logs</b> navigation link at the top, and you will be taken to the logs page. This page is just to keep track of which files have been moved where.</p>
                             <p> You can also click on the highlighted directory links to navigate there to find the files.</p>
                             <img src="logs.png" alt="logs screen" width="400">
