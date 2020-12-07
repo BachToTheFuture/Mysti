@@ -17,7 +17,7 @@
 				<div class="card-body">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
 						<a class="navbar-brand" href="index.html">
-                            <img src="mystiLogoSmall.png" height="40" style="margin-right: -5px" alt="">
+                            <img src="mystiLogoSmall.png" alt="mysti logo" height="40" style="margin-right: -5px" alt="">
 							Mysti
 						  </a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,18 +37,18 @@
 
                          <h4> Getting started </h4>
                             <p> When you open Mysti for the first time, you should see this window. </p>
-                            <img src="intro.png" width="400">
+                            <img src="intro.png" alt="welcome screen" width="400">
                             <p>Go ahead and click <b>Go create your first filter!</b> to begin!</p>
 
                          <h4> Choosing Directories</h4>
                             <p> Before creating filters, you must first indicate in which directory or directories Mysti should organize your files. </p>
                             <p> You should see the following. If you don't, go ahead and click the blue <b>Add directory</b>.</p>
-                            <img src="newdir.png" width="400">
+                            <img src="newdir.png" alt="new directory menu" width="400">
                             <p> Go ahead and click the small blue button called <b> Folder </b>. You should be able to choose a folder, and once you have done so press <b>Open</b>.</p>
                             <p> The textbox above the button should be filled like this if you chose your Desktop as the directory:</p>
-                            <img src="newdirfilled.png" width="400">
+                            <img src="newdirfilled.png" alt="filled new directory menu" width="400">
                             <p> Just press the <b>Save</b> button to save your changes! You should end up with something like this:</p>
-                            <img src="dircreated.png" width="400">
+                            <img src="dircreated.png" alt="directory created" width="400">
                         
                             <h5> Editing Directories </h5>
                                 <p> If you want to change directories and keep the filters that you have for this directory, click on the little icon next to the directory name. This will open up the editing mode.</p>
@@ -61,15 +61,15 @@
                         <h4> Creating Filters</h4>
                             <p>Once you create a directory, you can then start to create filters.</p>
                             <p>Click <b>Add filter</b> and you should see the following:</p>
-                            <img src="newfilter.png" width="400">
+                            <img src="newfilter.png" alt="create filter menu" width="400">
                             <p>Under <b>Regex for filename</b>, in the "Filter..." textbox, type in a <a href="https://regexone.com">regex</a> pattern that will match a filename.</p>
                             <p> Then in the <b>Target Directory</b> field type in the name of the folder that you wish to move any matching files to. If you put in a directory, notice that it is going to be the <i>relative</i> directory, relative to the directory of the filter, not the absolute directory. </p>
                             <p><b>Examples:</b> if you want to match all PDF files you would type ".pdf" in the filters field. If you want to move all PDF files to a folder called PDF, type "PDF" in the target directories field. Like this:</p>
-                            <img src="filterfilled.png" width="400">
+                            <img src="filterfilled.png" alt="filled create filter menu" width="400">
                             <p>Once you click <b>Save filter</b> you should get a screen like this:</p>
-                            <img src="filtercreated.png" width="400">
+                            <img src="filtercreated.png" alt="filter created" width="400">
                             <p> You are finally done! Everytime a new file is created or a file is moved in the directories specified, Mysti will notify you that the file has been moved if it matches the filter.</p>
-                            <img src="notification.png" width="400">
+                            <img src="notification.png" alt="file moved notification" width="400">
                             
                             <h5>Editing Filters</h5>
                                 <p>Click on the edit icon next to the name of the filter that you want to edit and it will bring up the edit menu.</p>
@@ -84,7 +84,7 @@
                                 <pre>Screen Shot (\d+)-(\d+)-(\d+) at 12.(\d+).(\d+) PM</pre>
                                 <p>The <code>(\d+)</code> is a placeholder for any number. This would mean that this regex would match any dates as long as the file was created exactly at 12:00 PM.</p>
                                 <p>Take a look at this screenshot for reference.</p>
-                                <img src="advanced.png" width="400">
+                                <img src="advanced.png" alt="advanced usage" width="400">
                                 
                                 <p>Instead of writing <code>(\d+)</code> everytime you need a placeholder, you can also press the <b>Number</b> button next to <b>Sample templates</b> to insert the pattern into the textbox.</p>
                                 <p>Let's say you want to place these files into different folders based on the year that they were taken in. Then for target directory you would put something like <pre>$1-12PMScreenshots</pre></p>
@@ -93,7 +93,7 @@
                         <h4>Logs</h4>
                             <p> If you don't remember where a file has been moved, click on the <b>Logs</b> navigation link at the top, and you will be taken to the logs page. This page is just to keep track of which files have been moved where.</p>
                             <p> You can also click on the highlighted directory links to navigate there to find the files.</p>
-                            <img src="logs.png" width="400">
+                            <img src="logs.png" alt="logs screen" width="400">
                       </div>
 				</div>
 			</div>
