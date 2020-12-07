@@ -10,14 +10,18 @@ var chokidar = require('chokidar');
 var fs = require('fs');
 var watchers = [];
 var watchersReady = false;
-
+var Tray;
 var filters = null;
+
+// Reset
+//store.set('newUser', true);
 
 // Remember to launch at start!
 const Store = require('electron-store');
 const schema = {
   launchAtStart: false,
-  filters: []
+  filters: [],
+  newUser: true,
 }
 const store = new Store(schema);
 
@@ -63,10 +67,8 @@ function replacePlaceholders(str, params) {
 
 function applyFilters(filters, dir, watchPath) {
   let fname = path.basename(dir);
-  console.log(fname);
   for (let n in filters) {
     let re = new RegExp(filters[n].filter, "i");
-    console.log(re);
     let match = fname.match(re);
     // If the pattern matches...
     if (match) {
@@ -77,7 +79,6 @@ function applyFilters(filters, dir, watchPath) {
       }
       
       let dest = watchPath+"/"+d;
-      console.log("Moving to", dest);
       
       if (!fs.existsSync(dest)){
           fs.mkdirSync(dest);
@@ -103,14 +104,12 @@ function onReady() {
     .on('add', function(path) {
         console.log('File', path, 'has been added');
         if (watchersReady) {
-          console.log("CHECK", filters[n].filters);
           applyFilters(filters[n].filters, path, filters[n].dir);
         }
     })
   .on('change', function(path) {
       console.log('File', path, 'has been changed');
       if (watchersReady) {
-        console.log("CHECK", filters[n].filters);
         applyFilters(filters[n].filters, path, filters[n].dir);
       }
   }).on('ready', function(){
@@ -121,9 +120,12 @@ function onReady() {
 
 app.on('ready', () => {
   createMainWindow();
-  const Tray = new TrayGenerator(mainWindow, store);
+  Tray = new TrayGenerator(mainWindow, store);
   Tray.createTray();
   ipcMain.on('FILTERS_UPDATED', (event, data) => {
+    // No longer a new user once they create their filter.
+    if (store.get('newUser')) store.set('newUser', false);
+
     store.set('filters', data);
     filters = data;
     watchers.forEach(x=>x.close());
@@ -132,8 +134,14 @@ app.on('ready', () => {
 
   mainWindow.webContents.on('did-finish-load', () => {
     filters = store.get('filters');
-    mainWindow.webContents.send('INITIALIZE_FILTERS', filters);
+    newUser = store.get('newUser');
+    if (newUser == undefined) {
+      store.set('newUser', true);
+      newUser = true;
+    }
+    mainWindow.webContents.send('INITIALIZE', filters, newUser);
     onReady();
+    Tray.showWindow();
   });
 });
 

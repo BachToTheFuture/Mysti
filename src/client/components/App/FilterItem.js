@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './styles.sass';
 const path = require('path');
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const { dialog, ipcRenderer } = window.require('electron');
 
@@ -97,8 +99,8 @@ class FilterItem extends React.Component {
         //<button type="button" id="start">?</button>
     else
         return (
-            <div className={styles.filter} onClick={this.toggleEdit}>
-                <span onClick={this.delete} className={styles.deleteX}>✖</span><span className={styles.filterText}>{this.state.filter}</span><span className={styles.arrow}>➞</span><span className={styles.dirText}>{this.state.dir}</span>
+            <div className={styles.filter}>
+                <span onClick={this.delete} className={styles.deleteX}>✖</span><span className={styles.clickable} onClick={this.toggleEdit}><FontAwesomeIcon icon={faEdit} /></span><span className={styles.filterText}>{this.state.filter}</span><span className={styles.arrow}>➞</span><span className={styles.dirText}>{this.state.dir}</span>
             </div>
         );
   }

@@ -1,4 +1,4 @@
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap"
 
 *
   user-select: none
@@ -15,14 +15,16 @@ a:hover
 body
   margin: 0
   background: none
-  font-weight: 600
+  font-weight: 400
   padding: 20px
 
 .filterText
   color: #5ba39c
+  font-weight: 600
 
 .dirText
   color: #4CE0B3
+  font-weight: 600
 
 button
   border: none
@@ -30,6 +32,7 @@ button
   padding: 5px 10px 5px 10px
   font-weight: 600
   font-size: 15px
+  background: #86c3ff
 
 button:focus
   outline: none
@@ -56,6 +59,7 @@ input[type=text]
 
 .group
   display: table
+  font-weight: 600
   span
     display: table-cell
     vertical-align: middle
@@ -80,7 +84,7 @@ input[type=text]
 input:focus
   outline: none
 
-.filter
+.clickable
   cursor: pointer
 
 .filterInput
@@ -123,6 +127,7 @@ input:focus
   font-size: 1.3rem
   font-weight: 700
   letter-spacing: -1.2px
+  margin-right: 5px
 
 .arrow
   font-size: 1.2rem
@@ -130,6 +135,7 @@ input:focus
 
 .helperText
   margin: 0 5px 0 5px
+  font-weight: 600
 
 .inputGroup
   .add
@@ -138,9 +144,12 @@ input:focus
   .edit
     border-top-left-radius: 0px
     border-bottom-left-radius: 0px
+  .middle
+    background:  #98e2ff
+    border-radius: 0px
 
 .inputGroupSmall
-  padding-left: 15px
+
   button
     font-size: 11px
   .add
@@ -154,6 +163,9 @@ input:focus
   .delete
     border-top-left-radius: 0px
     border-bottom-left-radius: 0px
+  .middle
+    background: #98e2ff
+    border-radius: 0px
 
 .smallTitle
   font-size: 20px
@@ -169,3 +181,80 @@ input:focus
 
 hyperlink
   color: #40d1a6 !important
+
+.child
+  align-content: center
+  text-align: center
+  width: 300px
+  height: 100px
+  padding: 20px
+
+  position: absolute
+  top: 50%
+  left: 50%
+
+  margin: -70px 0 0 -150px
+
+
+
+.ldsHeart 
+  display: inline-block
+  position: relative
+  width: 80px
+  height: 80px
+  transform: rotate(45deg)
+  transform-origin: 40px 40px
+
+.ldsHeart div 
+  top: 32px
+  left: 32px
+  position: absolute
+  width: 32px
+  height: 32px
+  background:  #40d1a6
+  animation: ldsHeart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1)
+
+.ldsHeart div:after,
+.ldsHeart div:before 
+  content: " "
+  position: absolute
+  display: block
+  width: 32px
+  height: 32px
+  background:  #40d1a6
+
+.ldsHeart div:before 
+  left: -24px
+  border-radius: 50% 0 0 50%
+
+.ldsHeart div:after 
+  top: -24px
+  border-radius: 50% 50% 0 0
+
+@keyframes ldsHeart 
+  0% 
+    transform: scale(0.95)
+  
+  5% 
+    transform: scale(1.1)
+  
+  39% 
+    transform: scale(0.85)
+  
+  45% 
+    transform: scale(1)
+  
+  60% 
+    transform: scale(0.95)
+  
+  100% 
+    transform: scale(0.9)
+
+footer
+  position: absolute
+  bottom: 0
+
+.highlight
+  color: #62babd
+  border-bottom: solid #62babd 2px
+  font-weight: 600

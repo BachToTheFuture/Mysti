@@ -1,6 +1,10 @@
 import React from 'react';
 import styles from './styles.sass';
 import FilterItem from './FilterItem';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
 const { ipcRenderer } = window.require('electron');
 const path = require('path');
 const {dialog, getCurrentWindow} = require('electron').remote;
@@ -74,9 +78,6 @@ class DirectoryItem extends React.Component {
   }
   handleKeyPress = (event) => {
     if(event.key === 'Enter'){
-        this.setState({
-            edit: false
-        });
         this.props.updateDir(this.state.dir, this.state.filters, this.props.idx);
     }
   }
@@ -103,15 +104,20 @@ class DirectoryItem extends React.Component {
       }
       */
       let header = this.state.edit ? (
-        <div className={styles.group}>
+        <div className={styles.filterEdit}>
+            <span style={{paddingTop: "20px"}} className={styles.helperText}>Where should Mysti look for new files?</span>
             <input className={styles.dirInput} value={this.state.dir} onChange={event => this.setDir(event.target.value)} type="text" onKeyPress={this.handleKeyPress} placeholder="Directory..." name="directory"></input>
+            <div style={{padding:"2px"}}></div>
             <span className={styles.inputGroupSmall}>
-              <button onClick={this.getDir} className={styles.chooseDir}>Choose directory</button>
+              <button onClick={this.getDir} className={styles.add}>Folder</button>
+              <button onClick={()=>{this.setState({edit: false}); this.props.updateDir(this.state.dir, this.state.filters, this.props.idx);}} className={styles.middle}>Save</button>
+              <button onClick={()=>{this.setState({edit: false})}} className={styles.delete}>Cancel</button>
             </span>
           </div>
       ) : (
         <div className={styles.group}>
-            <span onClick={this.toggleEdit} className={styles.smallTitle}>{path.basename(this.state.dir)}</span>
+            <span className={styles.smallTitle}>{path.basename(this.state.dir)}</span>
+            <span style={{paddingLeft: "10px", paddingRight: "10px"}} className={styles.clickable} onClick={this.toggleEdit}><FontAwesomeIcon icon={faEdit} /></span>
             <span className={styles.inputGroupSmall}>
               <button onClick={this.addFilter} className={styles.add}>Add filter</button>
               <button onClick={this.delete} className={styles.delete}>Delete</button>
