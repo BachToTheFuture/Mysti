@@ -7,6 +7,10 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 const { dialog, ipcRenderer } = window.require('electron');
 
 class FilterItem extends React.Component {
+  /*
+  FilterItem is a component for each of the little filters inside a directory.
+  This component has two modes: view mode and edit mode.
+  */
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +19,6 @@ class FilterItem extends React.Component {
       dir: props.dir || ""
     };
   }
-
   componentWillReceiveProps(props) {
     this.setState({
       dir: props.dir,
@@ -23,6 +26,9 @@ class FilterItem extends React.Component {
     })
   }
   update = () => {
+    /*
+    When a filter is updated, it also updates the directory that contains this filter.
+    */
     this.setState({
       edit: false
     }, ()=>{
@@ -31,7 +37,8 @@ class FilterItem extends React.Component {
     });
   }
   handleKeyPress = (event) => {
-    if(event.key === 'Enter'){
+    // Allow users to save changes just by pressing enter in any textbox.
+    if (event.key === 'Enter'){
         this.update()
     }
   }
@@ -51,21 +58,22 @@ class FilterItem extends React.Component {
       edit: false
     });
   }
-
+  /*
+  These are for the "Sample Templates" buttons.
+  These simply append some prewritten regex patterns to the textbox.
+  */
   addNumber = () => {
     document.getElementById("filter"+this.props.idx).value += "(\\d+)";
   }
   addWord = () => {
     document.getElementById("filter"+this.props.idx).value += "(\\w+)";
   }
-
   delete = () => {
     this.props.deleteFilter(this.props.idx);
   }
-
   render() {
     const { edit } = this.state;
-    // Make the input contenteditable so i can add Numbers and Words
+    // The edit mode
     if (edit)
         return (
             <div className={styles.filterEdit}>
@@ -82,7 +90,6 @@ class FilterItem extends React.Component {
                   onChange={event => this.setFilter(event.target.value)}
                   onKeyPress={this.handleKeyPress} type="text"
                   placeholder="Filter..." name="filter">
-                  
                 </input>
                 <br></br>
                 <br></br>
@@ -96,8 +103,8 @@ class FilterItem extends React.Component {
                 </span>
             </div>
         );
-        //<button type="button" id="start">?</button>
     else
+        // View mode
         return (
             <div className={styles.filter}>
                 <span onClick={this.delete} className={styles.deleteX}>✖</span><span className={styles.clickable} onClick={this.toggleEdit}><FontAwesomeIcon icon={faEdit} /></span><span className={styles.filterText}>{this.state.filter}</span><span className={styles.arrow}>➞</span><span className={styles.dirText}>{this.state.dir}</span>

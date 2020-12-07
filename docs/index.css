@@ -121,6 +121,11 @@ img {
   display: table-cell;
   vertical-align: middle;
 }
+.content-helper-main {
+  display: table-cell;
+  vertical-align: middle;
+  transform: translateY(-40px);
+}
 
 /* Buttons */
 .btn-primary {

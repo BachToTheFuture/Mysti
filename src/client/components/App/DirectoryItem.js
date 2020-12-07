@@ -8,6 +8,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 const { ipcRenderer } = window.require('electron');
 const path = require('path');
 const {dialog, getCurrentWindow} = require('electron').remote;
+
 class DirectoryItem extends React.Component {
   constructor(props) {
     super(props);
@@ -17,14 +18,12 @@ class DirectoryItem extends React.Component {
       filters: props.filters || []
     };
   }
-  
   componentWillReceiveProps(props) {
     this.setState({
       dir: props.dir,
       filters: props.filters,
     })
   }
-
   addFilter = () => {
     this.setState({
       filters: this.state.filters.concat([{new: true, filter: "", dir: ""}])
@@ -38,27 +37,28 @@ class DirectoryItem extends React.Component {
         edit: true
     });
   }
-
   getDir = () => {
+    // This is for retrieving directory path through an open dialog window.
     dialog.showOpenDialog( getCurrentWindow(), {
       properties: ['openDirectory']
     }).then(result => {
         let path = result.filePaths;
-        console.log(path);
-        if(path.length){
+        if (path.length) {
           this.setState({
               dir: path[0]
           });
-        }else {
+        } else {
             console.log("No path selected");
         }});
   }
-
   delete = () => {
+    // The deleteDir function has been passed down from the main component
+    // This will delete this directory item from the main component
     this.props.deleteDir(this.props.idx)
   }
-
   deleteFilter = (idx) => {
+    // Any changes to this directory will require a change in the array of directories
+    // in the main component.
     let filters = [...this.state.filters];
     filters.splice(idx, 1)
     this.setState({
@@ -67,7 +67,6 @@ class DirectoryItem extends React.Component {
       this.props.updateDir(this.state.dir, this.state.filters, this.props.idx);
     });
   }
-
   updateFilter = (filter, dir, idx) => {
     let filters = [...this.state.filters];
     filters[idx].filter = filter;
@@ -77,7 +76,7 @@ class DirectoryItem extends React.Component {
     });
   }
   handleKeyPress = (event) => {
-    if(event.key === 'Enter'){
+    if (event.key === 'Enter'){
         this.props.updateDir(this.state.dir, this.state.filters, this.props.idx);
     }
   }
@@ -87,6 +86,9 @@ class DirectoryItem extends React.Component {
 
   render() {
       let filterItems = [];
+      /*
+      Render all filters
+      */
       for (var i = 0; i < this.state.filters.length; i++) {
         if (this.state.filters[i].new) {
           delete this.state.filters[i].new;
@@ -94,15 +96,7 @@ class DirectoryItem extends React.Component {
         }
         else filterItems.push(<FilterItem deleteFilter={this.deleteFilter} updateDir={this.updateDirDirect} updateFilter={this.updateFilter} idx={i} key={i} filter={this.state.filters[i].filter} dir={this.state.filters[i].dir}/>);
       }
-      /*
-      if (filterItems.length == 0) {
-        filterItems = (
-          <div>
-            <b>Hello</b>
-          </div>
-        )
-      }
-      */
+      // Edit mode and view mode
       let header = this.state.edit ? (
         <div className={styles.filterEdit}>
             <span style={{paddingTop: "20px"}} className={styles.helperText}>Where should Mysti look for new files?</span>
@@ -126,7 +120,6 @@ class DirectoryItem extends React.Component {
       )
       return (
         <div className={styles.directory}>
-          
           {header}
           {filterItems}
         </div>

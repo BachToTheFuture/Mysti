@@ -3,8 +3,7 @@
 <img src="banner.png" height="100">
 
 
-
-A file organizer for MacOS, created by Bach Nguyen for CS50 Final Project. Thank you so much to @dbilgili for his [Electron-React boilerplate](https://github.com/dbilgili/minimal-electron-react-boilerplate), which I used as a starting point for my project!
+A file organizer for MacOS, created by Bach Nguyen for CS50 Final Project.
 
 ### Installation
 
@@ -36,7 +35,11 @@ If you want to compile the code to a native MacOS app and combine the client and
 
 Once the command is done, you'll see a new folder called `dist`. Navigate into this folder and and into a subfolder called `mac` and you'll an application file called "Mysti". This is the standalone application! Double click it to run Mysti.
 
+### Special Thanks
 
+Thank you so much to @dbilgili for his [Electron-React boilerplate](https://github.com/dbilgili/minimal-electron-react-boilerplate), which I used as a starting point for my project!
+
+Also a special thanks to [Doğacan Bilgili](https://blog.logrocket.com/building-a-menu-bar-application-with-electron-and-react/) for his splendid tutorial on creating an Electron taskbar applicaiton.
 
 
 

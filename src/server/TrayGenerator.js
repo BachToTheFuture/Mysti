@@ -1,3 +1,8 @@
+/*
+The TrayGenerator class comes from:
+https://blog.logrocket.com/building-a-menu-bar-application-with-electron-and-react/
+*/
+
 const { Tray, Menu } = require('electron');
 const path = require('path');
 

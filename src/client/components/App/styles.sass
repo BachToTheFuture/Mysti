@@ -1,8 +1,10 @@
 @import "node_modules/bootstrap/scss/bootstrap"
 
+/* Disable selection */
 *
   user-select: none
 
+/* Page element */
 a
   text-decoration: none
   color: black
@@ -12,20 +14,15 @@ a:hover
   text-decoration: none
   color: #5ba39c
   transition: all ease 0.1s
+
 body
   margin: 0
   background: none
   font-weight: 400
   padding: 20px
 
-.filterText
-  color: #5ba39c
-  font-weight: 600
 
-.dirText
-  color: #4CE0B3
-  font-weight: 600
-
+/* Buttons and other input*/
 button
   border: none
   border-radius: 5px
@@ -33,7 +30,6 @@ button
   font-weight: 600
   font-size: 15px
   background: #86c3ff
-
 button:focus
   outline: none
 .add, .chooseDir
@@ -50,19 +46,13 @@ button:focus
   color: #f78888
   margin-right: 5px
   cursor: pointer
+
 input[type=text]
   padding: 5px 5px
   border: none
   background: white
   font-weight: 600
   min-width: 250px
-
-.group
-  display: table
-  font-weight: 600
-  span
-    display: table-cell
-    vertical-align: middle
 
 .wordBadge
   background-color: #40d1a6
@@ -94,7 +84,7 @@ input:focus
   font-weight: 400 !important
   font-family: monospace
   font-size: 13px
-
+  
 .dirInput
   width: 100%
   border-bottom: 2px #40d1a6 solid !important
@@ -102,40 +92,6 @@ input:focus
   font-weight: 400 !important
   font-family: monospace
   font-size: 13px
-
-.app
-  font-family: 'Raleway', sans-serif
-  font-size: 16px
-  height: 100vh
-
-.directory
-  padding: 10px
-  margin-bottom: 10px
-  border-radius: 5px
-  box-shadow: 0px 0px 41px -19px rgba(0,0,0,0.68)
-  word-wrap: break-word
-
-.title, h2
-  padding-right: 20px
-  margin-bottom: 10px
-  font-weight: 800
-  font-size: 2.5rem
-  letter-spacing: -3px
-  
-
-.smallTitle, h3
-  font-size: 1.3rem
-  font-weight: 700
-  letter-spacing: -1.2px
-  margin-right: 5px
-
-.arrow
-  font-size: 1.2rem
-  margin: 0 5px 0 5px
-
-.helperText
-  margin: 0 5px 0 5px
-  font-weight: 600
 
 .inputGroup
   .add
@@ -149,7 +105,6 @@ input:focus
     border-radius: 0px
 
 .inputGroupSmall
-
   button
     font-size: 11px
   .add
@@ -167,6 +122,37 @@ input:focus
     background: #98e2ff
     border-radius: 0px
 
+  
+/* Text theming */
+.filterText
+  color: #5ba39c
+  font-weight: 600
+
+.dirText
+  color: #4CE0B3
+  font-weight: 600
+
+.title, h2
+  padding-right: 20px
+  margin-bottom: 10px
+  font-weight: 800
+  font-size: 2.5rem
+  letter-spacing: -3px
+
+.smallTitle, h3
+  font-size: 1.3rem
+  font-weight: 700
+  letter-spacing: -1.2px
+  margin-right: 5px
+
+.arrow
+  font-size: 1.2rem
+  margin: 0 5px 0 5px
+
+.helperText
+  margin: 0 5px 0 5px
+  font-weight: 600
+
 .smallTitle
   font-size: 20px
   font-weight: 800
@@ -176,27 +162,51 @@ input:focus
   font-weight: 700
   padding: 10px 0px 10px 10px
 
-.card
-  margin-bottom: 10px
-
 hyperlink
   color: #40d1a6 !important
 
+.highlight
+  color: #62babd
+  border-bottom: solid #62babd 2px
+  font-weight: 600
+
+  
+/* Divs and containers */
 .child
   align-content: center
   text-align: center
   width: 300px
   height: 100px
   padding: 20px
-
   position: absolute
   top: 50%
   left: 50%
-
   margin: -70px 0 0 -150px
 
+.card
+  margin-bottom: 10px
+
+.group
+  display: table
+  font-weight: 600
+  span
+    display: table-cell
+    vertical-align: middle
+    
+.app
+  font-family: 'Raleway', sans-serif
+  font-size: 16px
+  height: 100vh
+
+.directory
+  padding: 10px
+  margin-bottom: 10px
+  border-radius: 5px
+  box-shadow: 0px 0px 41px -19px rgba(0,0,0,0.68)
+  word-wrap: break-word
 
 
+/* Loading screen animation */
 .ldsHeart 
   display: inline-block
   position: relative
@@ -249,12 +259,3 @@ hyperlink
   
   100% 
     transform: scale(0.9)
-
-footer
-  position: absolute
-  bottom: 0
-
-.highlight
-  color: #62babd
-  border-bottom: solid #62babd 2px
-  font-weight: 600
