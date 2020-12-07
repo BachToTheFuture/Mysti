@@ -13,8 +13,6 @@ var watchersReady = false;
 var Tray;
 var filters = null;
 
-// Reset
-//store.set('newUser', true);
 
 // Remember to launch at start!
 const Store = require('electron-store');
@@ -24,6 +22,9 @@ const schema = {
   newUser: true,
 }
 const store = new Store(schema);
+
+// Reset
+// store.clear();
 
 // For manual reset of data
 // store.set('filters', []);
@@ -135,7 +136,11 @@ app.on('ready', () => {
   mainWindow.webContents.on('did-finish-load', () => {
     filters = store.get('filters');
     newUser = store.get('newUser');
-    if (newUser == undefined) {
+    if (filters == undefined) {
+      store.set('filters', []);
+      filters = [];
+    }
+    if (newUser == undefined) { 
       store.set('newUser', true);
       newUser = true;
     }
