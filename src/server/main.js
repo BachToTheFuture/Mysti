@@ -8,6 +8,7 @@ const { is } = require('electron-util');
 const TrayGenerator = require('./TrayGenerator');
 const path = require('path');
 
+
 // chokidar is used for watching file changes
 var chokidar = require('chokidar');
 var fs = require('fs');
@@ -26,6 +27,8 @@ const schema = {
   newUser: true,
 }
 const store = new Store(schema);
+
+store.clear();
 
 // Create main window
 // Declared outside for creating a Tray later on.

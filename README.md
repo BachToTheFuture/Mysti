@@ -5,6 +5,8 @@
 
 A file organizer for MacOS, created by Bach Nguyen for CS50 Final Project.
 
+<i>Go [here](https://youtu.be/ynyTa0NRofQ) to see my final project video!</i>
+
 ### Installation
 
 Visit the project page [here](https://bachtothefuture.github.io/Mysti/) to download the compiled application, and place it in your Applications folder. Mysti is ready to be used, and there's no need to compile anything!
